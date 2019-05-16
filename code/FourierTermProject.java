@@ -77,14 +77,14 @@ public class FourierTermProject {
 			dt = 1./wavFile.getSampleRate();
 			
 			// Set the size of the arrays that hold the signal and time values
-<<<<<<< HEAD
+
 			signal = new double[(int)wavFile.getNumFrames()];  
 			time = new double[signal.length];     
-=======
+
 			// int lengthh = wavFile.getNumFrames()
 			signal = new double[(int)wavFile.getNumFrames()];  
 			time = new double[signal.length];
->>>>>>> f5f3523a4e384f37f7bba0df687a567eee5dea80
+
 			
 			System.out.println("signal length is " + signal.length);
 			
@@ -148,11 +148,11 @@ public class FourierTermProject {
 		}
 		
 		
-<<<<<<< HEAD
+
 		// If we want to print the data in the command prompt to make sure that the padding works
-=======
+
 		// If we want to print the data in the command prompt
->>>>>>> f5f3523a4e384f37f7bba0df687a567eee5dea80
+
 		/*for (int i = 0; i <paddedSignal.length; i++)
 		{
 			System.out.println(paddedSignal[i]);
@@ -180,17 +180,17 @@ public class FourierTermProject {
 		// Calculate frequency and power and fill the arrays
 		for (int m = 0; m < frequency.length; m++) 
 		{
-<<<<<<< HEAD
+
 			frequency[m] = m * fNyq / frequency.length; // In the lab it was m/dt/signalFT.length but that would give us 'infinity' for all our data points... still with our results, this makes sense
 			//outputFile.printf("%6.6f\n",frequency[m]); // prints the array in a Notepad file
 			power[m] = Math.pow(signalFT[m].getReal(),2) + Math.pow(signalFT[m].getImaginary(),2);
 			//outputFile.printf("%6.6f\n",power[m]); // prints the array in a Notepad file
-=======
+
 			frequency[m] = m * fNyq / frequency.length; // In the lab it was m/dt/signalFT.length
 			//outputFile.printf("%6.6f\n",frequency[m]); // prints the array in a Notepad file
 			power[m] = Math.pow(signalFT[m].getReal(),2) + Math.pow(signalFT[m].getImaginary(),2);
 			//outputFile.printf("%6.6f\n",power[m]); // printes the array in a Notepad file
->>>>>>> f5f3523a4e384f37f7bba0df687a567eee5dea80
+
 		}
 		
 		outputFile.close();
