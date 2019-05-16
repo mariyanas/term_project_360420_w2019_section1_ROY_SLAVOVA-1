@@ -1,10 +1,3 @@
-/**
-* Module 4 - Lab 2 - Audio Analysis Using a FFT - Task A
-* Author: A. Stewart
-* Current version written: May 2016
-* Description: FT of a pure tone 
-*/
-
 // Import packages
 import java.io.*;
 //import java.io.*;
@@ -230,7 +223,13 @@ public class FourierTermProject {
 		frame1.setContentPane(plot1);
 		frame1.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		frame1.setVisible(true);
+<<<<<<< HEAD
 		// Power spectrum plot
+=======
+
+		// Power spectrum plot
+
+>>>>>>> cbf1bc616c067f872a2e51cb3cb2556c9b63c14f
 		// Find maximum power
 		double PMax = 0.0;
 		for (int j = 0; j < power.length; j++) {
@@ -269,7 +268,11 @@ public class FourierTermProject {
     // Since our code will not be tested on our own computer, it is important that we allow the teacher to chose it himself from our folder
     // (Trying to get the file from a specific directory would result problematic)
     {
+<<<<<<< HEAD
         JFileChooser fc = new JFileChooser(); // Empty constructor that points to user?s default directory
+=======
+        JFileChooser fc = new JFileChooser(); // Empty constructor that points to user’s default directory
+>>>>>>> cbf1bc616c067f872a2e51cb3cb2556c9b63c14f
         int result = fc.showOpenDialog(null); // Pops up an "Open File" file chooser dialog; "null" means displayed at the center
         File file = null; // Declare "file"; "null" means empty object file
         if (result == JFileChooser.APPROVE_OPTION) // APPROVE_OPTION: Return value if approve (yes, ok) is chosen.
