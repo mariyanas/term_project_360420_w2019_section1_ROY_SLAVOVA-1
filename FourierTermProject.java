@@ -7,7 +7,7 @@
 
 // Import packages
 import java.io.*;
-//import java.io.*;
+import java.io.*;
 import java.util.*;
 import java.awt.*;
 import javax.swing.*;
@@ -23,12 +23,13 @@ import java.util.Arrays;
 public class FourierTermProject {
 
 	// Start main method
-	public static void main(String[] Args) {
+	public static void main(String[] Args) 
+	{
 		
 		//*********************************************************************
         //Opening a file to store data ****************************************
         //*********************************************************************
-        String filename = "powerAndFrequencyOutput.txt";
+        String filename = "selectedDataOutput.txt";
         PrintWriter outputFile = null;
         try
         {
@@ -80,7 +81,7 @@ public class FourierTermProject {
 			// Calculate the time step and Nyquist frequency
 			
 			fNyq = (wavFile.getSampleRate())/2.;
-			dt = 1/wavFile.getSampleRate();
+			dt = 1./wavFile.getSampleRate();
 			// Set the size of the arrays that hold the signal and time values
 			//int lengthh = wavFile.getNumFrames()
 			signal = new double[(int)wavFile.getNumFrames()];	    //do i need to divide by 2? jf said no
@@ -96,6 +97,7 @@ public class FourierTermProject {
 			// Create and fill the time array
 			for (int n = 0; n < signal.length; n++) {
 				time[n] = n*dt;
+				//outputFile.printf("%6.6f\n",time[n]);
 			}
 
 			// Close the WAV file
@@ -147,6 +149,7 @@ public class FourierTermProject {
 			{
 				paddedSignal[i]=0;
 			}
+			//outputFile.printf("%6.6f\n",paddedSignal[i]);
 		}
 		
 		
@@ -175,40 +178,21 @@ public class FourierTermProject {
 		// Calculate frequency and power and fill the arrays
 		for (int m = 0; m < frequency.length; m++) {
 			frequency[m] = /*m/dt/signalFT.length*/ m*fNyq/frequency.length;
+			//outputFile.printf("%6.6f\n",frequency[m]);
 			power[m] = Math.pow(signalFT[m].getReal(),2)+Math.pow(signalFT[m].getImaginary(),2);
+			//outputFile.printf("%6.6f\n",power[m]);
 		}
-		
-		//************************************************************************************************
-		//open this part to get the power data in the file and close it to when getting the frequency data
-		double p = 0;
-		for (int i = 0; i < frequency.length; i++){
-		//System.out.println (power[i]);
-		p = power[i] ;
-		
-		outputFile.printf("%6.6f\n",p);
-		}
-		
-		//************************************************************************************************
-		//open this part to get the frequency data in the file and close it to when getting the power data
-		/*double f = 0;
-		for (int i = 0; i < frequency.length; i++){
-		f = frequency[i] ;
-		
-		outputFile.printf("%6.6f\n",f);
-		}*/
 		
 		outputFile.close();
 		
-		
-		
 		//////////////////////////////////////		
-		// 5. Plotting (DO NOT EDIT)
+		// 5. Plotting (DO NOT EDIT, except when you need to!!!!!)
 		//////////////////////////////////////
 
-		//Font plotFont = new Font(Font.MONOSPACED,Font.PLAIN,12);
+		Font plotFont = new Font(Font.MONOSPACED,Font.PLAIN,12);
 
 		// Signal plot
-		/*
+		
 		// Create a PlotPanel
   		Plot2DPanel plot1 = new Plot2DPanel();
 		
@@ -263,7 +247,7 @@ public class FourierTermProject {
 		frame2.setLocationRelativeTo(null);
 		frame2.setContentPane(plot2);
 		frame2.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		frame2.setVisible(true);*/
+		frame2.setVisible(true);
 	}
 	
 	private static File getFile()
